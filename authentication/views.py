@@ -1,10 +1,13 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.views.generic import FormView,CreateView
+from django.views.generic import FormView,CreateView,UpdateView
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+
+from .models import Profile
+from .forms import ProfileForm
 
 
 class SignUp(CreateView):
@@ -33,3 +36,10 @@ class PasswordUpdateView(LoginRequiredMixin,SuccessMessageMixin, FormView):
             update_session_auth_hash(request, user) 
             return self.form_valid(form = form)
         return self.form_invalid( form = form)
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    def get_object(self, queryset=None):
+        return Profile.objects.get(user = self.request.user)
+    model = Profile
+    form_class = ProfileForm
+    template_name = 'profile_creation.html'

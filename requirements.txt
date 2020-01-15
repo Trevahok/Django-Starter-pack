@@ -1,6 +1,8 @@
-Django==2.1.7
-django-ckeditor==5.6.1
-django-crispy-forms==1.7.2
+asgiref==3.2.3
+Django==3.0.2
+django-ckeditor==5.8.0
+django-crispy-forms==1.8.1
 django-js-asset==1.2.2
-djangorestframework==3.9.2
-pytz==2018.9
+djangorestframework==3.11.0
+pytz==2019.3
+sqlparse==0.3.0

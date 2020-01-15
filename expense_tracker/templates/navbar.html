@@ -55,6 +55,10 @@
                     {{ user.username | title }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a href=" {% url 'profile_update'%} " class="dropdown-item">
+                        <span class="fa fa-user"></span>
+                        View Profile
+                    </a>
                     <a href=" {% url 'update_password'%} " class="dropdown-item">
                         <span class="fa fa-th-list"></span>
                         Change Password
